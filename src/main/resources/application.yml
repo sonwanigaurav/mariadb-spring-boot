@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: com.mariadb.mariadb-spring-boot
+  main:
+    banner-mode: 'off'
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+  datasource:
+    url: jdbc:${databaseServer}
+    username: ${databaseUsername}
+    password: ${databasePassword}
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      max-lifetime: 600000 # 10 minutes
+      idle-timeout: 300000 # current 5m
+      leak-detection-threshold: 10000 # 10s
+      maximum-pool-size: 60
+      minimum-idle: 10
+      data-source-properties:
+        logServerErrorDetail: false
+  spring.jpa.properties.hibernate:
+    jdbc.lob.non_contextual_creation: true
+    dialect: org.hibernate.dialect.MariaDB103Dialect
+    temp.use_jdbc_metadata_defaults: false

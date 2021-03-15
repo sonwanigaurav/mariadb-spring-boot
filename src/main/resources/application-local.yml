@@ -1,0 +1,7 @@
+#
+databaseServer: mariadb://localhost/test
+databaseUsername: g9709
+databasePassword: mariadb
+
+spring.jpa.hibernate.ddl-auto : update
+spring.jpa.show-sql: true
