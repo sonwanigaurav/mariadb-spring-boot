@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "igm_user_info")
+@Table(name = "igm_user")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +18,7 @@ import java.util.Date;
 public class IGMUserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
     @Column(name = "first_name")
@@ -28,16 +28,17 @@ public class IGMUserEntity {
     String lastName;
 
     @Column(name = "email_id")
-    Long emailId;
+    String emailId;
 
-    String country;
+    @Column(name = "iso_country_code")
+    String isoCountryCode;
 
     @Builder.Default
-    @Column(name = "created_at")
+    @Column(name = "createdAt")
     Date createdAt = new Date();
 
     @UpdateTimestamp
     @Builder.Default
-    @Column(name = "updated_at")
+    @Column(name = "updatedAt")
     Date updatedAt = new Date();
 }

@@ -1,4 +1,3 @@
-#
 databaseServer: mariadb://localhost/test
 databaseUsername: g9709
 databasePassword: mariadb
